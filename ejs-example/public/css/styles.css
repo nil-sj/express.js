@@ -1,0 +1,11 @@
+body {
+    background-color: lightyellow;
+}
+h1 {
+    color: red;
+}
+
+li {
+    font-size: 2rem;
+    color: purple
+}

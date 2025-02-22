@@ -6,6 +6,9 @@ const app = express();
 // Use body-parser for POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serves static files from /public
+app.use(express.static('public')); 
+
 // Set EJS as the view engine
 app.set("view engine", "ejs");
 
@@ -19,7 +22,9 @@ app.get("/", (req, res) => {
   const dayToday = today.toLocaleDateString("en-US", optionsToday);
   const optionsKindOfDay = { weekday: "long" };
   const kindOfDay = today.toLocaleDateString("en-US", optionsKindOfDay);
-  res.render("list", { kindOfDay: kindOfDay, dayToday: dayToday, myItems: items });
+  const optionsYear = { year: "numeric" };
+  const year = today.toLocaleDateString("en-US", optionsYear);
+  res.render("list", { kindOfDay: kindOfDay, dayToday: dayToday, myItems: items, year: year });
 });
 
 // Handle form submission
