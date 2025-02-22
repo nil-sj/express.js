@@ -1,9 +1,10 @@
 <%- include("header", { title: "To-Do List" }); %>
-  <h1>Today is: <%= dayToday %></h1>
+  <h1><%= typeOfList %></h1>
+  <h2>Today is: <%= dayToday %></h2>
   <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
-    <h2 style="color: green;">It’s the weekend! (<%= kindOfDay %>)</h2>
+    <h3 style="color: green;">It’s the weekend! (<%= kindOfDay %>)</h3>
   <% } else { %>
-    <h2 style="color: purple;">It’s a weekday! (<%= kindOfDay %>)</h2>
+    <h3 style="color: purple;">It’s a weekday! (<%= kindOfDay %>)</h3>
   <% } %>
   
   <ul>
@@ -15,5 +16,6 @@
   <form action="/" method="post">
     <input type="text" name="newItem" placeholder="New Item">
     <button type="submit">Add</button>
+    <input type="hidden" name="list" value="<%= typeOfList %>">
   </form>
   <%- include("footer", { year: year }); %>
