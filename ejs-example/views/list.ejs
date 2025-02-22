@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Today</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Today is: <%= kindOfDay %></h1>
+
+  <ul>
+    <% for(let i = 0; i < myItems.length; i++) { %>
+      <li><%= myItems[i] %></li>
+    <% } %>
+  </ul>
+
+  <form action="/" method="post">
+    <input type="text" name="newItem" placeholder="New Item">
+    <button type="submit">Add</button>
+  </form>
+</body>
+</html>
