@@ -15,10 +15,11 @@ const items = ["Buy Food", "Cook Food", "Eat Food"];
 // Root route handler
 app.get("/", (req, res) => {
   const today = new Date();
-  const options = { weekday: "long", day: "numeric", month: "long" };
-  const dayToday = today.toLocaleDateString("en-US", options);
-
-  res.render("list", { kindOfDay: dayToday, myItems: items });
+  const optionsToday = { weekday: "long", day: "numeric", month: "long" };
+  const dayToday = today.toLocaleDateString("en-US", optionsToday);
+  const optionsKindOfDay = { weekday: "long" };
+  const kindOfDay = today.toLocaleDateString("en-US", optionsKindOfDay);
+  res.render("list", { kindOfDay: kindOfDay, dayToday: dayToday, myItems: items });
 });
 
 // Handle form submission
